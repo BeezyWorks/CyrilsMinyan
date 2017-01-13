@@ -1,0 +1,34 @@
+<md-card class="content">
+  <md-card-subtitle>{{shabbos?.hebrewDate}}</md-card-subtitle>
+  <md-card-subtitle>{{shabbos?.date | date:"mediumDate"}}</md-card-subtitle>
+  <md-card-title>{{shabbos?.parsha}}</md-card-title>
+  <md-card-content>
+    <div class="zman">
+      <h3>Candel Lighting</h3>
+      <span>{{shabbos?.candelLight | date:"shortTime"}}</span>
+    </div>
+    <div class="zman">
+      <h3>Mincha</h3>
+      <span>{{shabbos?.mincha | date:"shortTime"}}</span>
+    </div>
+    <div class="zman">
+      <h3>Maariv</h3>
+      <span>{{shabbos?.maariv | date:"shortTime"}}</span>
+    </div>
+    <div class="zman">
+      <h3>Earliest Havdala</h3>
+      <span>{{shabbos?.earliestHavdala | date:"shortTime"}}</span>
+    </div>
+    <div *ngIf="host!=null &&  (host|async)?.lastName != null">
+      <h3> Host </h3>
+      <p>{{(host | async)?.lastName}} </p>
+      <h3>{{(host | async)?.address}}</h3>
+    </div>
+    <div *ngIf="host==null || (host|async)?.lastName == null">
+      <h3>No Host</h3>
+    </div>
+  </md-card-content>
+  <md-card-actions>
+    <button *ngIf="host==null || (host|async)?.lastName == null" md-raised-button (click)="volunteer()">Voluneer</button>
+  </md-card-actions>
+</md-card>

@@ -1,0 +1,34 @@
+<div *ngIf="!register" class="container">
+    <md-card>
+        <md-card-title>Log in</md-card-title>
+        <form (ngSubmit)="login()">
+            <md-card-content>
+                <div class="form-group">
+                    <md-input-container>
+                        <input md-input type="email" [(ngModel)]="loginCreds.email" name="email" placeholder="email" required>
+                    </md-input-container>
+                </div>
+                <div class="form-group">
+                    <md-input-container>
+                        <input md-input type="password" [(ngModel)]="loginCreds.password" name="password" placeholder="password" required>
+                    </md-input-container>
+                </div>
+
+                <p class="warning-text" *ngIf="noUser">User not found! Please register first</p>
+                <p class="warning-text" *ngIf="badEmail">Invalid email!</p>
+            </md-card-content>
+            <md-card-actions>
+                <button md-button type="submit">Submit</button>
+                <button md-button color="primary" (click)="loginWithGoogle()">Sign in with Google</button>
+                <button md-button color="primary" (click)="registerClicked()">Register</button>
+            </md-card-actions>
+        </form>
+    </md-card>
+</div>
+
+<div *ngIf="register" class="container">
+
+<user-details [isRegister]="true"></user-details>
+<button md-button color="primary" (click)="registerClicked()">Back to Login</button>
+
+</div>

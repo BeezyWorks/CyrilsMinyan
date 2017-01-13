@@ -1,0 +1,18 @@
+.content{
+    width: 180px;
+    margin: auto;
+}
+
+.zman { 
+    
+     }
+
+.zman > h3{
+     display: inline-block;
+     font-size: 10pt;
+     color: #9C27B0;
+      }
+
+.zman > span { 
+    text-align: right
+    }

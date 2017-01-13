@@ -1,0 +1,13 @@
+.container{
+    width: 50%;
+    margin: auto;
+}
+
+.spacer{
+    width: 16px;
+    height: 16px;
+}
+
+.full-input{
+    width: 100%;
+}

@@ -1,3 +1,4 @@
-<h1>
-  {{title}}
-</h1>
+<header></header>
+  <login-screen *ngIf="auth==null"></login-screen>
+  <router-outlet [hidden]="auth!=null"></router-outlet>
+

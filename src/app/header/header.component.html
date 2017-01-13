@@ -1,0 +1,7 @@
+<div [fxLayout]="row" class="tab-bar">
+  <div *ngFor="let tab of navTabs">
+    <button md-button routerLink={{tab.routing}} routerLinkActive="active">{{tab.title}}</button>
+  </div>
+
+  <button layout-align="end" md-button (click)="logout()">Log Out</button>
+</div>

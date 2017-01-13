@@ -1,0 +1,60 @@
+<md-card >
+  <md-card-title>{{title}}</md-card-title>
+  <form (ngSubmit)="registerClicked()">
+    <md-card-content>
+      <div>
+        <md-input-container>
+          <input md-input type="text" [(ngModel)]="details.firstName" name="firstName" placeholder="First name" required>
+        </md-input-container>
+
+        <md-input-container>
+          <input md-input type="text" [(ngModel)]="details.lastName" name="lastName" placeholder="Last name" required>
+        </md-input-container>
+      </div>
+      <div class="spacer"></div>
+      <div>
+        <md-input-container class="full-input">
+          <input md-input type="email" [(ngModel)]="details.email" name="email" placeholder="Email address" required>
+        </md-input-container>
+      </div>
+      <div class="spacer"></div>
+      <div>
+        <md-input-container class="full-input">
+          <input md-input class="full-input" type="tel" [(ngModel)]="details.phone" name="phone" placeholder="Mobile phone" required>
+        </md-input-container>
+      </div>
+      <div class="spacer"></div>
+      <div>
+        <md-input-container class="full-input">
+          <input md-input class="full-input" type="string" [(ngModel)]="details.address" name="address" placeholder="Street address"
+            required>
+        </md-input-container>
+      </div>
+      <div class="spacer"></div>
+      <div *ngIf="isRegister">
+        <md-input-container class="full-input">
+          <input md-input class="full-input" type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+        </md-input-container>
+        <div class="spacer"></div>
+        <md-input-container class="full-input">
+          <input md-input class="full-input" type="password" [(ngModel)]="repeatPassword" name="repeatpassword" placeholder="Repeat Password"
+            required>
+        </md-input-container>
+        <div class="spacer"></div>
+
+        <p class="warning-text" *ngIf="password?.length<6">Password must be at least 6 characters!</p>
+        <p class="warning-text" *ngIf="password!=repeatPassword">Passwords do not match!</p>
+      </div>
+
+      <div>
+        <md-checkbox [(ngModel)]="details.host" name="host">
+          I am willing to host the Minyan in my home
+        </md-checkbox>
+      </div>
+    </md-card-content>
+    <p class="warning-text" *ngIf="registerError!=null">{{registerError}}</p>
+    <md-card-actions>
+      <button [disabled]="isRegister && (password!=repeatPassword || password?.length<6)" md-raised-button color="primary">{{submitText}}</button>
+    </md-card-actions>
+  </form>
+</md-card>

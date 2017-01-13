@@ -1,0 +1,6 @@
+<div *ngFor="let shabbos of (shabbosos | async)">
+  <shabbos-card [shabbos]="shabbos"></shabbos-card>
+  <div class="spacer"></div>
+</div>
+
+<button md-raised-button (click)="addShabbos()">Add Shabbos</button>
